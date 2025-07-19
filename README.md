@@ -25,7 +25,7 @@ First, clone both the frontend and backend repositories:
 
 bash
 # Clone frontend
-git clone https://github.com/your-username/book-collection-frontend.git
+git clone https://github.com/Mireau-Jules/book-collection-app
 cd book-collection-frontend
 
 # Clone backend 
