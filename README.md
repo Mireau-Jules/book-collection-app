@@ -1,12 +1,104 @@
-# React + Vite
+Overview
+A modern web application for managing your personal book collection. This app allows you to catalog, search, and organize your books with a clean, intuitive interface.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Features
+View your book collection in an elegant card layout
 
-Currently, two official plugins are available:
+Search books by title or author
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Filter by book categories
 
-## Expanding the ESLint configuration
+Add new books with cover images
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Responsive design works on all devices
+
+Prerequisites
+Node.js (v16 or higher)
+
+npm (v8 or higher)
+
+Git
+
+Installation
+1. Clone the repositories
+First, clone both the frontend and backend repositories:
+
+bash
+# Clone frontend
+git clone https://github.com/your-username/book-collection-frontend.git
+cd book-collection-frontend
+
+# Clone backend 
+git clone https://github.com/your-username/book-collection-backend.git ../book-collection-backend
+2. Set up the backend
+bash
+cd ../book-collection-backend
+npm install
+3. Set up the frontend
+bash
+cd ../book-collection-frontend
+npm install
+Running the Application
+Start the backend server
+From the backend directory:
+
+bash
+npx json-server --watch db.json --port 3001
+Start the frontend development server
+From the frontend directory:
+
+bash
+npm run dev
+The application will be available at http://localhost:5173
+
+Project Structure
+Frontend
+text
+/src
+  /components
+    BookCard.jsx
+    BookList.jsx
+    SearchBar.jsx
+    AddBookForm.jsx
+  /styles
+    *.module.css
+  App.jsx
+  main.jsx
+Backend
+text
+/db.json        # Database file
+package.json
+Configuration
+The frontend is configured to connect to http://localhost:3001 by default
+
+To change the API endpoint, create a .env file in the frontend root:
+
+text
+VITE_API_URL=http://your-api-url:port
+Future Roadmap
+User authentication system
+
+Reading progress tracking
+
+Book rating and reviews
+
+Export/import functionality
+
+Mobile application version
+
+Troubleshooting
+If you encounter issues:
+
+Ensure both servers are running
+
+Verify no other services are using ports 3001 or 5173
+
+Check console logs for errors
+
+Delete node_modules and reinstall dependencies if needed
+
+Contributing
+Contributions are welcome. Please open an issue to discuss proposed changes before submitting a pull request.
+
+License
+This project is licensed under the MIT License.
