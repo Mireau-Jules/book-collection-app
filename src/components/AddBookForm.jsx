@@ -2,7 +2,6 @@ import { useState } from "react";
 import axios from 'axios';
 import styles from '../styles/AddBookForm.module.css';
 
-// Complete list of book categories
 const BOOK_CATEGORIES = [
   "Fiction",
   "Non-Fiction",
@@ -30,7 +29,7 @@ export default function AddBookForm({ addBook }) {
   const [formData, setFormData] = useState({ 
     title: '', 
     author: '', 
-    category: 'Fiction', // Default category
+    category: 'Fiction',
     cover: '' 
   });
 
@@ -52,42 +51,61 @@ export default function AddBookForm({ addBook }) {
 
   return (
     <form onSubmit={handleSubmit} className={styles.form}>
-      <input
-        type="text"
-        placeholder="Book Title"
-        value={formData.title}
-        onChange={(e) => setFormData({...formData, title: e.target.value})}
-        className={styles.input}
-        required
-      />
-      <input
-        type="text"
-        placeholder="Author"
-        value={formData.author}
-        onChange={(e) => setFormData({ ...formData, author: e.target.value })}
-        className={styles.input}
-        required
-      />
+      <h2>Add New Book</h2>
       
-      <select
-        value={formData.category}
-        onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-        className={styles.select}
-      >
-        {BOOK_CATEGORIES.map(category => (
-          <option key={category} value={category}>{category}</option>
-        ))}
-      </select>
+      <div className={styles.inputGroup}>
+        <label htmlFor="title">Book Title</label>
+        <input
+          id="title"
+          type="text"
+          placeholder="Enter book title"
+          value={formData.title}
+          onChange={(e) => setFormData({...formData, title: e.target.value})}
+          className={styles.input}
+          required
+        />
+      </div>
+      
+      <div className={styles.inputGroup}>
+        <label htmlFor="author">Author</label>
+        <input
+          id="author"
+          type="text"
+          placeholder="Enter author name"
+          value={formData.author}
+          onChange={(e) => setFormData({ ...formData, author: e.target.value })}
+          className={styles.input}
+          required
+        />
+      </div>
+      
+      <div className={styles.inputGroup}>
+        <label htmlFor="category">Category</label>
+        <select
+          id="category"
+          value={formData.category}
+          onChange={(e) => setFormData({ ...formData, category: e.target.value })}
+          className={styles.select}
+        >
+          {BOOK_CATEGORIES.map(category => (
+            <option key={category} value={category}>{category}</option>
+          ))}
+        </select>
+      </div>
+      
+      <div className={styles.inputGroup}>
+        <label htmlFor="cover">Cover Image URL (optional)</label>
+        <input
+          id="cover"
+          type="url"
+          placeholder="https://example.com/book-cover.jpg"
+          value={formData.cover}
+          onChange={(e) => setFormData({ ...formData, cover: e.target.value })}
+          className={styles.input}
+        />
+      </div>
 
-      <input
-        type="url"
-        placeholder="Cover Image URL (optional)"
-        value={formData.cover}
-        onChange={(e) => setFormData({ ...formData, cover: e.target.value })}
-        className={styles.input}
-      />
-
-      <button className={styles.button} type="submit">Add Book</button>
+      <button className={styles.button} type="submit">Add to Collection</button>
     </form>
   );
 }

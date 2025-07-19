@@ -1,9 +1,9 @@
 :root {
-  --primary: #2c3e50;       
-  --secondary: #3498db;     
-  --light: #ecf0f1;        
-  --dark: #2c3e50;         
-  --accent: #e74c3c;       
+  --primary: #2a363b;
+  --secondary: #e84a5f;
+  --light: #f9f9f9;
+  --dark: #2a363b;
+  --accent: #fecea8;
 }
 
 .book-form {

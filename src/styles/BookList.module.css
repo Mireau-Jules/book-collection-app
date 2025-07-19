@@ -1,23 +1,28 @@
 .listContainer {
-  max-width: 800px;
+  max-width: 1200px;
   margin: 2rem auto;
-  padding: 0 1rem;
+  padding: 0 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
 }
 
 .loading {
   text-align: center;
-  margin: 2rem;
+  margin: 4rem 0;
   color: var(--dark);
+  font-size: 1.2rem;
+  grid-column: 1 / -1;
 }
 
 .spinner {
-  border: 4px solid rgba(0, 0, 0, 0.1);
+  border: 5px solid rgba(0, 0, 0, 0.05);
   border-radius: 50%;
-  border-top: 4px solid var(--secondary);
-  width: 40px;
-  height: 40px;
+  border-top: 5px solid var(--secondary);
+  width: 50px;
+  height: 50px;
   animation: spin 1s linear infinite;
-  margin: 0 auto 1rem;
+  margin: 0 auto 1.5rem;
 }
 
 @keyframes spin {
@@ -28,5 +33,34 @@
 .error {
   color: var(--accent);
   text-align: center;
-  margin: 2rem;
+  margin: 4rem 0;
+  font-size: 1.2rem;
+  grid-column: 1 / -1;
+}
+
+/* No results message */
+.no-results {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: #666;
+  font-size: 1.1rem;
+  margin: 2rem 0;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.02);
+  border-radius: 8px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .listContainer {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .listContainer {
+    grid-template-columns: 1fr;
+    padding: 0 1rem;
+  }
 }

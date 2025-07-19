@@ -42,11 +42,15 @@ export default function BookList() {
   if (loading) return <div className={styles.loading}>Loading...</div>;
 
   return (
-    <div className={styles.listContainer}>
-      <SearchBar onSearch={handleSearch} onFilter={handleFilter} />
-      {filteredBooks.map(book => (
+  <div className={styles.listContainer}>
+    <SearchBar onSearch={handleSearch} onFilter={handleFilter} />
+    {filteredBooks.length === 0 ? (
+      <div className={styles.noResults}>No books found matching your criteria</div>
+    ) : (
+      filteredBooks.map(book => (
         <BookCard key={book.id} book={book} />
-      ))}
-    </div>
-  );
+      ))
+    )}
+  </div>
+);
 }

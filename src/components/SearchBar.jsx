@@ -6,27 +6,28 @@ export default function SearchBar({ onSearch, onFilter }) {
   const [filter, setFilter] = useState('all');
 
   const BOOK_CATEGORIES = [
-  "Fiction",
-  "Non-Fiction",
-  "Fantasy",
-  "Science Fiction",
-  "Mystery",
-  "Thriller",
-  "Romance",
-  "Horror",
-  "Biography",
-  "History",
-  "Self-Help",
-  "Science",
-  "Travel",
-  "Poetry",
-  "Drama",
-  "Young Adult",
-  "Children",
-  "Cooking",
-  "Art",
-  "Business"
-];
+    "All Categories",
+    "Fiction",
+    "Non-Fiction",
+    "Fantasy",
+    "Science Fiction",
+    "Mystery",
+    "Thriller",
+    "Romance",
+    "Horror",
+    "Biography",
+    "History",
+    "Self-Help",
+    "Science",
+    "Travel",
+    "Poetry",
+    "Drama",
+    "Young Adult",
+    "Children",
+    "Cooking",
+    "Art",
+    "Business"
+  ];
 
   const handleSearch = (e) => {
     const value = e.target.value;
@@ -37,14 +38,14 @@ export default function SearchBar({ onSearch, onFilter }) {
   const handleFilter = (e) => {
     const value = e.target.value;
     setFilter(value);
-    onFilter(value);
+    onFilter(value === "All Categories" ? "all" : value);
   };
 
   return (
     <div className={styles.searchContainer}>
       <input
         type="text"
-        placeholder="Search by title or author..."
+        placeholder="Search by title or author"
         value={searchTerm}
         onChange={handleSearch}
         className={styles.searchInput}
@@ -56,7 +57,7 @@ export default function SearchBar({ onSearch, onFilter }) {
       >
         {BOOK_CATEGORIES.map(category => (
           <option key={category} value={category}>
-            {category === 'all' ? 'All Categories' : category}
+            {category}
           </option>
         ))}
       </select>
