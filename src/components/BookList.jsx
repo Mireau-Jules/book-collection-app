@@ -10,7 +10,7 @@ export default function BookList() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get('http://localhost:3001/books')
+    axios.get('https://687e938defe65e5200870f76.mockapi.io/books')
       .then(res => {
         setBooks(res.data);
         setFilteredBooks(res.data);
