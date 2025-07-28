@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import styles from '../styles/Home.module.css';
 
 export default function Home() {
@@ -12,7 +13,6 @@ export default function Home() {
     <>
 
       <div className={`${styles.homepage} ${loaded ? styles.loaded : ''}`}>
-        {/* Hero Section */}
         <section className={styles.hero}>
           <div className={styles.heroBackground}></div>
           <div className={styles.heroContent}>
@@ -21,12 +21,9 @@ export default function Home() {
             </h1>
             <p className={styles.subtitle}>Discover, organize, and cherish your literary journey</p>
             <div className={styles.ctaContainer}>
-              <a href="/books" className={styles.primaryButton}>
-                <i className="fas fa-book-open"></i> Explore Collection
-              </a>
-              <a href="/add-book" className={styles.secondaryButton}>
-                <i className="fas fa-plus"></i> Add New Book
-              </a>
+                <Link className={styles.primaryButton} to="/books"><i className="fas fa-book-open"></i> Explore Collection</Link>
+              
+                <Link className={styles.secondaryButton} to="/add-book"><i className="fas fa-plus"></i> Add New Book </Link>
             </div>
           </div>
         </section>
