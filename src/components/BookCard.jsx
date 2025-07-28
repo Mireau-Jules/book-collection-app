@@ -21,6 +21,16 @@ export default function BookCard({ book }) {
         <h3 className={styles.title}>{book.title}</h3>
         <p className={styles.author}>By: {book.author}</p>
         <span className={styles.category}>{book.category}</span>
+        {book.pdfLink && (
+          <a
+            href={book.pdfLink}
+            target='_blank'
+            rel="noopener noreferrer"
+            className={styles.downloadButton}
+          >
+              Download PDF
+          </a>
+        )}
       </div>
     </div>
   );

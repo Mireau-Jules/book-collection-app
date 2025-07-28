@@ -1,49 +1,36 @@
+import { useEffect, useState } from 'react';
 import styles from '../styles/Home.module.css';
 
 export default function Home() {
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    setLoaded(true);
+  }, []);
+
   return (
-    <div className={styles.homepage}>
-      <section className={styles.heroNew}>
-        <div className={styles.geometricShape}></div>
-        <div className={styles.heroContentNew}>
-          <h1><span>Book Haven</span></h1>
-          <p>Discover, organize, and cherish your literary journey</p>
-          <div className={styles.ctaButtonsNew}>
-            <a href="/books" className={`${styles.btn} ${styles.newPrimary}`}>
-              <i className="fas fa-book-open"></i> Explore Collection
-            </a>
-            <a href="/add-book" className={`${styles.btn} ${styles.newSecondary}`}>
-              <i className="fas fa-plus"></i> Add New Book
-            </a>
+    <>
+
+      <div className={`${styles.homepage} ${loaded ? styles.loaded : ''}`}>
+        {/* Hero Section */}
+        <section className={styles.hero}>
+          <div className={styles.heroBackground}></div>
+          <div className={styles.heroContent}>
+            <h1 className={styles.title}>
+              <span className={styles.titleGradient}>Book Haven</span>
+            </h1>
+            <p className={styles.subtitle}>Discover, organize, and cherish your literary journey</p>
+            <div className={styles.ctaContainer}>
+              <a href="/books" className={styles.primaryButton}>
+                <i className="fas fa-book-open"></i> Explore Collection
+              </a>
+              <a href="/add-book" className={styles.secondaryButton}>
+                <i className="fas fa-plus"></i> Add New Book
+              </a>
+            </div>
           </div>
-        </div>
-      </section>
-      
-      <div className={styles.featuresGrid}>
-        <div className={styles.featureCard}>
-          <div className={styles.featureIcon}>
-            <i className="fas fa-search"></i>
-          </div>
-          <h3>Smart Discovery</h3>
-          <p>Find books with powerful search and filtering tools</p>
-        </div>
-        
-        <div className={styles.featureCard}>
-          <div className={styles.featureIcon}>
-            <i className="fas fa-layer-group"></i>
-          </div>
-          <h3>Organize Easily</h3>
-          <p>Categorize your collection with custom tags</p>
-        </div>
-        
-        <div className={styles.featureCard}>
-          <div className={styles.featureIcon}>
-            <i className="fas fa-bookmark"></i>
-          </div>
-          <h3>Personal Library</h3>
-          <p>Create your own digital bookshelf</p>
-        </div>
+        </section>
       </div>
-    </div>
+    </>
   );
 }

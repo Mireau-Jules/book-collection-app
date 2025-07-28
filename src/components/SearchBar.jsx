@@ -6,27 +6,18 @@ export default function SearchBar({ onSearch, onFilter }) {
   const [filter, setFilter] = useState('all');
 
   const BOOK_CATEGORIES = [
-    "All Categories",
-    "Fiction",
-    "Non-Fiction",
-    "Fantasy",
-    "Science Fiction",
-    "Mystery",
-    "Thriller",
-    "Romance",
-    "Horror",
-    "Biography",
-    "History",
-    "Self-Help",
-    "Science",
-    "Travel",
-    "Poetry",
-    "Drama",
-    "Young Adult",
-    "Children",
-    "Cooking",
-    "Art",
-    "Business"
+  "All Categories",
+  "Languages & Communication",
+  "Personal Development",
+  "Law, Politics & Philosophy",
+  "Economics, Finance & Entrepreneurship",
+  "History, Essays & Fiction",
+  "Engineering, Math & Computer Science",
+  "Handicrafts & DIY",
+  "Psychology, Sociology & Education",
+  "Health & Medicine",
+  "Relationships & Sexuality",
+  "Spirituality, Art & Music"
   ];
 
   const handleSearch = (e) => {

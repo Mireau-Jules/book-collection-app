@@ -1,22 +1,43 @@
+/* Navbar.module.css */
+
 .nav {
-    background: linear-gradient(135deg, #3a4a6d 0%, #2c3e50 100%);
-    padding: 1rem 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     position: sticky;
     top: 0;
     z-index: 100;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.86);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.navContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
 }
 
 .logo {
-    color: #fecea8;
-    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #2a363b;
+    text-decoration: none;
+    font-family: 'Playfair Display', serif;
+}
+
+.logo i {
+    color: #e84a5f;
     transition: transform 0.3s ease;
 }
 
-.logo:hover {
+.logo:hover i {
     transform: rotate(15deg);
 }
 
@@ -26,12 +47,12 @@
 }
 
 .links a {
-    color: rgba(255, 255, 255, 0.9);
+    position: relative;
+    color: #2a363b;
     text-decoration: none;
     font-weight: 500;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     padding: 0.5rem 0;
-    position: relative;
     transition: all 0.3s ease;
 }
 
@@ -42,12 +63,12 @@
     left: 0;
     width: 0;
     height: 2px;
-    background: #fecea8;
+    background: linear-gradient(135deg, #e84a5f 0%, #fecea8 100%);
     transition: width 0.3s ease;
 }
 
 .links a:hover {
-    color: white;
+    color: #e84a5f;
 }
 
 .links a:hover::after {
@@ -55,7 +76,8 @@
 }
 
 .links a.active {
-    color: #fecea8;
+    color: #e84a5f;
+    font-weight: 600;
 }
 
 .links a.active::after {
@@ -64,8 +86,12 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .nav {
-        padding: 1rem;
+    .navContainer {
+        padding: 0.8rem 1.5rem;
+    }
+    
+    .logo {
+        font-size: 1.2rem;
     }
     
     .links {
@@ -73,16 +99,20 @@
     }
     
     .links a {
-        font-size: 1rem;
+        font-size: 0.95rem;
     }
 }
 
 @media (max-width: 480px) {
-    .links {
-        gap: 1rem;
+    .navContainer {
+        padding: 0.7rem 1rem;
     }
     
-    .logo {
-        font-size: 1.5rem;
+    .logo span {
+        display: none;
+    }
+    
+    .links {
+        gap: 1.2rem;
     }
 }
